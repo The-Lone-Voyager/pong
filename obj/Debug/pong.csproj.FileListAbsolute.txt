@@ -1,0 +1,6 @@
+E:\programming\pong\bin\Debug\pong.exe.config
+E:\programming\pong\bin\Debug\pong.exe
+E:\programming\pong\bin\Debug\pong.pdb
+E:\programming\pong\obj\Debug\pong.csprojResolveAssemblyReference.cache
+E:\programming\pong\obj\Debug\pong.exe
+E:\programming\pong\obj\Debug\pong.pdb
