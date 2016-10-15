@@ -46,11 +46,14 @@
     <Compile Include="Ball.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="LeftPaddle.cs" />
+    <Compile Include="LeftScoreNumber.cs" />
     <Compile Include="MyShared.cs" />
     <Compile Include="Paddle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RightPaddle.cs" />
+    <Compile Include="RightScoreNumber.cs" />
+    <Compile Include="ScoreNumber.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
