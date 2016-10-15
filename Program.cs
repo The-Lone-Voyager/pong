@@ -12,14 +12,19 @@ namespace pong
     {   
         static void Main(string[] args)
         {
-            SetWindowSize(width, height);
+            SetWindowSize(width, height + 1);
             CursorVisible = false;
 
-            SetCursorPosition(0, 8);
-            for (int i = 0; i < width; ++i)
+            SetCursorPosition(width / 2, 0);
+
+            for (int i = 0; i < height; ++i)
             {
-                Write('-');
+                MakeTextVisible();
+                Write("|");
+                ++CursorTop;
+                --CursorLeft;
             }
+
             //WriteLine("█");
 
             /*while (true)
@@ -38,8 +43,17 @@ namespace pong
             LeftPaddle lPaddle = new LeftPaddle();
             RightPaddle rPaddle = new RightPaddle();
             Ball ball = new Ball();
+            LeftScoreNumber lScore = new LeftScoreNumber();
+            RightScoreNumber rScore = new RightScoreNumber();
+
+            ScoreNumber[] scores = { lScore, rScore };
 
             GameObject[] gameObjects = { lPaddle, rPaddle, ball };
+
+            foreach (ScoreNumber sn in scores)
+            {
+                sn.Draw();
+            }
 
             foreach (GameObject p in gameObjects)
             {

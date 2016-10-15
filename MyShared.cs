@@ -22,6 +22,9 @@ namespace pong
         public static readonly int leftPaddleLeftNum = paddleBuffer;                            // console left property of left paddle
         public static readonly int rightPaddleLeftNum = (width - 1) - paddleBuffer;             // console left propoerty of right paddle
 
+        public static readonly int bufferFromMiddleToScores = 20;                            // buffer between middle line and score numbers
+        public static readonly int numberHeight = 8;                                        // height of scores
+
         public static void MakeTextInvisible()                                              // call this to make text invisible
         {
             ForegroundColor = backgroundColor;
