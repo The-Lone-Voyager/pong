@@ -413,7 +413,7 @@ namespace pong
             }
         }
 
-        int Value { get; set; } = 11;         // value of this score number, initialized to 0
+        int Value { get; set; } = 0;         // value of this score number, initialized to 0
         int TopBuffer { get; set; } = 1;         // TopBuffer of score number
         int NumberWidth { get; set; } = 6;      // width of numbers
         int LeftStart { get; set; }     // number of columns from left where this number's box starts
