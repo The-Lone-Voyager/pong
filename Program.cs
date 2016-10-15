@@ -12,13 +12,14 @@ namespace pong
     {   
         static void Main(string[] args)
         {
-            SetWindowSize(width, height);
+            SetWindowSize(width, height + 1);
             CursorVisible = false;
 
             SetCursorPosition(width / 2, 0);
 
             for (int i = 0; i < height; ++i)
             {
+                MakeTextVisible();
                 Write("|");
                 ++CursorTop;
                 --CursorLeft;
