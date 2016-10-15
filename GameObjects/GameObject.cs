@@ -24,9 +24,13 @@ namespace pong
         public void Draw()  // draws the object on the screen then sets the text back to invisible
         {
             GoToPositionOnScreen();
-            MakeTextVisible();
             Write(objectChar);
-            MakeTextInvisible();
+        }
+
+        public void Erase() // erases the GameObject from the screen
+        {
+            GoToPositionOnScreen();
+            Write(" ");
         }
 
         private int Top { get; set; }   // the current position of the object character from the top of the console window

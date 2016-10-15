@@ -23,7 +23,6 @@ namespace pong
         {
             ClearNumberBox();
             GoToTopLeftOfBox();
-            MakeTextVisible();
             switch (Value)
             {
                 case 0:
@@ -376,7 +375,6 @@ namespace pong
                         break;
                     }
             }
-            MakeTextInvisible();
         }
 
         private void LineDown(int num)  // aid in number drawing - draw line down for specified height
@@ -400,7 +398,6 @@ namespace pong
         private void ClearNumberBox()   // clears the number box of anything that might have been in there before
         {
             GoToTopLeftOfBox();
-            MakeTextInvisible();
             for (int i = 0; i < heightOfScoreNumbers; ++i)
             {
                 for (int j = 0; j < ScoreNumberWidth; ++j)

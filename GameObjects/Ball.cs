@@ -13,7 +13,6 @@ namespace pong
         public Ball()
             : base(widthOfConsole/2, heightOfConsole/2, "■")
         {
-
         }
     }
 }

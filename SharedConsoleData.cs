@@ -22,17 +22,6 @@ namespace pong
         // height of the numbers at the top
         public static readonly int heightOfScoreNumbers = 8;        // height of the scoring numbers
 
-        // public methods
-        public static void MakeTextInvisible()  // call this to make text invisible
-        {
-            ForegroundColor = backgroundColor;
-        }
-
-        public static void MakeTextVisible()    // call this to make text visible
-        {
-            ForegroundColor = textColor;
-        }
-
         // private data
         private static readonly ConsoleColor backgroundColor = ConsoleColor.Black;  // background color of console
         private static readonly ConsoleColor textColor = ConsoleColor.White;        // text color of console
