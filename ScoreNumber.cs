@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static pong.MyShared;
+using static pong.SharedConsoleData;
 using static System.Console;
 
 namespace pong
 {
-    class ScoreNumber
+    class ScoreNumber // represents a scoring number, numbers are formatted centered in an invisible box of ScoreNumberWidth width
     {
         public ScoreNumber(int lStart)              // initialize the left margin for this number
         {                                           // will differ between left/right number
-            LeftStart = lStart;
+            MarginLeftForScoreNumber = lStart;
         }
 
         private void GoToTopLeftOfBox()             // goes to the top left of the number's box
         {
-            SetCursorPosition(LeftStart, TopBuffer);
+            SetCursorPosition(MarginLeftForScoreNumber, MarginTopForScoreNumber);
         }
-        public void Draw()                          // Draw the number
+        public void Draw()      // Draw the number, draws scores 0-11 then makes text invisible again
         {
             ClearNumberBox();
             GoToTopLeftOfBox();
@@ -31,17 +31,17 @@ namespace pong
                         LineAcross();
 
                         ++CursorTop;
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
-                        LineDown(numberHeight - 2);
+                        LineDown(heightOfScoreNumbers - 2);
 
                         GoToTopLeftOfBox();
                         ++CursorTop;
-                        CursorLeft += (NumberWidth - 1);
+                        CursorLeft += (ScoreNumberWidth - 1);
 
-                        LineDown(numberHeight - 2);
+                        LineDown(heightOfScoreNumbers - 2);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
                         break;
@@ -49,14 +49,14 @@ namespace pong
 
                 case 1:
                     {
-                        CursorLeft += (NumberWidth / 2);
-                        LineDown(numberHeight);
+                        CursorLeft += (ScoreNumberWidth / 2);
+                        LineDown(heightOfScoreNumbers);
                         break;
                     }
 
                 case 2:
                     {
-                        int blocksLeft = numberHeight - 3;
+                        int blocksLeft = heightOfScoreNumbers - 3;
                         int half = blocksLeft / 2;
                         int upper = 0;
                         int lower = 0;
@@ -80,16 +80,16 @@ namespace pong
 
                         LineDown(upper);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
 
                         ++CursorTop;
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineDown(lower);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
 
@@ -98,7 +98,7 @@ namespace pong
 
                 case 3:
                     {
-                        int blocksLeft = numberHeight - 3;
+                        int blocksLeft = heightOfScoreNumbers - 3;
                         int half = blocksLeft / 2;
                         int upper = 0;
                         int lower = 0;
@@ -122,7 +122,7 @@ namespace pong
 
                         LineDown(upper);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
 
@@ -131,7 +131,7 @@ namespace pong
 
                         LineDown(lower);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
 
@@ -140,7 +140,7 @@ namespace pong
 
                 case 4:
                     {
-                        int blocksLeft = numberHeight - 1;
+                        int blocksLeft = heightOfScoreNumbers - 1;
                         int half = blocksLeft / 2;
                         int upper = 0;
                         int lower = 0;
@@ -160,9 +160,9 @@ namespace pong
                         LineDown(upper);
 
                         GoToTopLeftOfBox();
-                        CursorLeft += (NumberWidth - 1);
+                        CursorLeft += (ScoreNumberWidth - 1);
 
-                        LineDown(NumberWidth);
+                        LineDown(ScoreNumberWidth);
 
                         GoToTopLeftOfBox();
 
@@ -174,7 +174,7 @@ namespace pong
 
                 case 5:
                     {
-                        int blocksLeft = numberHeight - 3;
+                        int blocksLeft = heightOfScoreNumbers - 3;
                         int half = blocksLeft / 2;
                         int upper = 0;
                         int lower = 0;
@@ -194,7 +194,7 @@ namespace pong
                         LineAcross();
 
                         ++CursorTop;
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineDown(upper);
 
@@ -205,7 +205,7 @@ namespace pong
 
                         LineDown(lower);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
                         break;
@@ -213,7 +213,7 @@ namespace pong
 
                 case 6:
                     {
-                        int blocksLeft = numberHeight - 2;
+                        int blocksLeft = heightOfScoreNumbers - 2;
                         int half = blocksLeft / 2;
                         int upper = 0;
                         int lower = 0;
@@ -230,7 +230,7 @@ namespace pong
 
                         lower = half;
 
-                        LineDown(numberHeight);
+                        LineDown(heightOfScoreNumbers);
 
                         GoToTopLeftOfBox();
                         CursorTop += upper;
@@ -241,7 +241,7 @@ namespace pong
 
                         LineDown(lower);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
                         break;
@@ -252,13 +252,13 @@ namespace pong
                         LineAcross();
                         ++CursorTop;
                         --CursorLeft;
-                        LineDown(numberHeight - 1);
+                        LineDown(heightOfScoreNumbers - 1);
                         break;
                     }
 
                 case 8:
                     {
-                        int blocksLeft = numberHeight - 3;
+                        int blocksLeft = heightOfScoreNumbers - 3;
                         int half = blocksLeft / 2;
                         int upper = 0;
                         int lower = 0;
@@ -275,28 +275,28 @@ namespace pong
 
                         lower = half + 1;
 
-                        LineDown(numberHeight);
+                        LineDown(heightOfScoreNumbers);
                         GoToTopLeftOfBox();
                         LineAcross();
 
                         --CursorLeft;
                         ++CursorTop;
 
-                        LineDown(numberHeight - 1);
+                        LineDown(heightOfScoreNumbers - 1);
 
                         GoToTopLeftOfBox();
                         CursorTop += (upper + 1);
                         LineAcross();
 
                         CursorTop += (lower + 1);
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
                         LineAcross();
                         break;
                     }
 
                 case 9:
                     {
-                        int blocksLeft = numberHeight - 3;
+                        int blocksLeft = heightOfScoreNumbers - 3;
                         int half = blocksLeft / 2;
                         int upper = 0;
                         int lower = 0;
@@ -317,7 +317,7 @@ namespace pong
                         ++CursorTop;
                         --CursorLeft;
 
-                        LineDown(numberHeight - 1);
+                        LineDown(heightOfScoreNumbers - 1);
 
                         GoToTopLeftOfBox();
                         ++CursorTop;
@@ -328,58 +328,58 @@ namespace pong
 
                 case 10:
                     {
-                        CursorLeft += (NumberWidth / 2);
-                        LineDown(numberHeight);
+                        CursorLeft += (ScoreNumberWidth / 2);
+                        LineDown(heightOfScoreNumbers);
 
-                        int temp = LeftStart;
+                        int temp = MarginLeftForScoreNumber;
 
-                        LeftStart += ((NumberWidth - 1) + secondDigitBuffer);
+                        MarginLeftForScoreNumber += ((ScoreNumberWidth - 1) + MarginBetweenFirstAndSecondDigit);
 
                         GoToTopLeftOfBox();
 
                         LineAcross();
 
                         ++CursorTop;
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
-                        LineDown(numberHeight - 2);
+                        LineDown(heightOfScoreNumbers - 2);
 
                         GoToTopLeftOfBox();
                         ++CursorTop;
-                        CursorLeft += (NumberWidth - 1);
+                        CursorLeft += (ScoreNumberWidth - 1);
 
-                        LineDown(numberHeight - 2);
+                        LineDown(heightOfScoreNumbers - 2);
 
-                        CursorLeft = LeftStart;
+                        CursorLeft = MarginLeftForScoreNumber;
 
                         LineAcross();
 
-                        LeftStart = temp;
+                        MarginLeftForScoreNumber = temp;
                         break;
                     }
 
                 case 11:
                     {
-                        CursorLeft += (NumberWidth / 2);
-                        LineDown(numberHeight);
+                        CursorLeft += (ScoreNumberWidth / 2);
+                        LineDown(heightOfScoreNumbers);
 
-                        int temp = LeftStart;
+                        int temp = MarginLeftForScoreNumber;
 
-                        LeftStart += ((NumberWidth - 1) + secondDigitBuffer);
+                        MarginLeftForScoreNumber += ((ScoreNumberWidth - 1) + MarginBetweenFirstAndSecondDigit);
 
                         GoToTopLeftOfBox();
 
-                        CursorLeft += (NumberWidth / 2);
-                        LineDown(numberHeight);
+                        CursorLeft += (ScoreNumberWidth / 2);
+                        LineDown(heightOfScoreNumbers);
 
-                        LeftStart = temp;
+                        MarginLeftForScoreNumber = temp;
                         break;
                     }
             }
             MakeTextInvisible();
         }
 
-        private void LineDown(int num)
+        private void LineDown(int num)  // aid in number drawing - draw line down for specified height
         {
             for (int i = 0; i < num; ++i)
             {
@@ -389,36 +389,41 @@ namespace pong
             }
         }
 
-        private void LineAcross()
+        private void LineAcross()   // aid in number drawing - draw line horizantally across width of number
         {
-            for (int i = 0; i < NumberWidth; ++i)
+            for (int i = 0; i < ScoreNumberWidth; ++i)
             {
                 Write(numChar1);
             }
         }
 
-        private void ClearNumberBox()                // clears the number box of anything that might have been in there before
+        private void ClearNumberBox()   // clears the number box of anything that might have been in there before
         {
             GoToTopLeftOfBox();
             MakeTextInvisible();
-            for (int i = 0; i < numberHeight; ++i)
+            for (int i = 0; i < heightOfScoreNumbers; ++i)
             {
-                for (int j = 0; j < NumberWidth; ++j)
+                for (int j = 0; j < ScoreNumberWidth; ++j)
                 {
                     Write(" ");
                 }
 
                 ++CursorTop;
-                CursorLeft = LeftStart;
+                CursorLeft = MarginLeftForScoreNumber;
             }
         }
 
-        int Value { get; set; } = 0;         // value of this score number, initialized to 0
-        int TopBuffer { get; set; } = 1;         // TopBuffer of score number
-        int NumberWidth { get; set; } = 6;      // width of numbers
-        int LeftStart { get; set; }     // number of columns from left where this number's box starts
-        string numChar1 = "■";
-        string numChar2 = "█";
-        int secondDigitBuffer = 2;
+        // public property
+        public int Value { get; set; } = 0;         // value of this score number, initialized to 0
+
+        // formatting information
+        private int MarginTopForScoreNumber { get; set; } = 1; // margin from top of screen to scoring numbers
+        private int ScoreNumberWidth { get; set; } = 6; // width of scoring numbers
+        private int MarginLeftForScoreNumber { get; set; } // left margin of this score number
+        private int MarginBetweenFirstAndSecondDigit { get; set; } = 2;  // margin between digits for 10 and 11
+
+        // characters numbers made out of
+        private string numChar1 = "■";  // drawing the scores utilizes these two
+        private string numChar2 = "█";  // ascii characters       
     }
 }

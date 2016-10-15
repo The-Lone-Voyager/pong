@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static pong.SharedConsoleData;
+using static pong.MyShared;
 
 namespace pong
 {
-    class LeftScoreNumber : ScoreNumber // represents the left score number
+    class LeftScoreNumber : ScoreNumber
     {
         public LeftScoreNumber()
-            : base((widthOfConsole/2) - marginFromMiddleToScores - heightOfScoreNumbers)
+            : base((width/2) - bufferFromMiddleToScores - numberHeight)
         {
         }
     }

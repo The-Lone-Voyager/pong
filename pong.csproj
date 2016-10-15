@@ -47,7 +47,7 @@
     <Compile Include="GameObject.cs" />
     <Compile Include="LeftPaddle.cs" />
     <Compile Include="LeftScoreNumber.cs" />
-    <Compile Include="MyShared.cs" />
+    <Compile Include="SharedConsoleData.cs" />
     <Compile Include="Paddle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
