@@ -13,14 +13,16 @@ namespace pong
         public ScoreNumber(int lStart)              // initialize the left margin for this number
         {                                           // will differ between left/right number
             MarginLeftForScoreNumber = lStart;
+            
         }
 
         private void GoToTopLeftOfBox()             // goes to the top left of the number's box
         {
             SetCursorPosition(MarginLeftForScoreNumber, MarginTopForScoreNumber);
         }
-        public void Draw()      // Draw the number, draws scores 0-11 then makes text invisible again
+        public virtual void Draw()      // Draw the number, draws scores 0-11 then makes text invisible again
         {
+            MakeTextVisible();
             ClearNumberBox();
             GoToTopLeftOfBox();
             switch (Value)
@@ -375,6 +377,8 @@ namespace pong
                         break;
                     }
             }
+
+            MakeTextInvisible();
         }
 
         private void LineDown(int num)  // aid in number drawing - draw line down for specified height
@@ -382,9 +386,20 @@ namespace pong
             for (int i = 0; i < num; ++i)
             {
                 Write(numChar2);
+                screenSquares[CursorTop, CursorLeft - 1] = new ScoreNumbers.SquareInfo((IsLeftNumber() ? 2 : 3), numChar2);
                 ++CursorTop;
                 --CursorLeft;
             }
+        }
+
+        private bool IsLeftNumber()
+        {
+            if (this is LeftScoreNumber)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void LineAcross()   // aid in number drawing - draw line horizantally across width of number
@@ -392,6 +407,7 @@ namespace pong
             for (int i = 0; i < ScoreNumberWidth; ++i)
             {
                 Write(numChar1);
+                screenSquares[CursorTop, CursorLeft - 1] = new ScoreNumbers.SquareInfo((IsLeftNumber() ? 2 : 3), numChar1);
             }
         }
 
@@ -400,7 +416,7 @@ namespace pong
             GoToTopLeftOfBox();
             for (int i = 0; i < heightOfScoreNumbers; ++i)
             {
-                for (int j = 0; j < ScoreNumberWidth; ++j)
+                for (int j = 0; j < ((ScoreNumberWidth * 2 ) + MarginBetweenFirstAndSecondDigit); ++j)
                 {
                     Write(" ");
                 }

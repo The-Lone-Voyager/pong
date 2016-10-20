@@ -12,7 +12,13 @@ namespace pong
         public RightScoreNumber()
             : base (widthOfConsole/2 + marginFromMiddleToScores + 1)
         {
+            DeleteAllScreenSquaresWithSquareType(3);
+        }
 
+        public override void Draw()
+        {
+            DeleteAllScreenSquaresWithSquareType(3);
+            base.Draw();
         }
     }
 }
